@@ -47,7 +47,7 @@ Sample screenshot of the swagger APIs dropdown from the configuration.
 
 ##### Remember:
 * If you use Zuul or Eureka, please add the dependency on it to and Application files.
-* Cross origin Resource Sharing (CORS) need to be enabled on the micriservices server. Please let me know if you need details on how to configure the same in SpringBoot application.
+* Cross origin Resource Sharing (CORS) need to be enabled on the microservices server. Please let me know if you need details on how to configure the same in SpringBoot application.
 
 
 Thanks to @dilipkrish (SpringFox Member) & @jhipster.
