@@ -4,4 +4,4 @@ metadata:
   name: radical-swagger-documentation-server-config
   namespace: easycoop
 data:
-  spring.profiles.active: dev
+  spring.profiles.active: test
