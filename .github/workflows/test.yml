@@ -32,29 +32,29 @@ jobs:
       - name:  Docker push
         run: docker push easycoop.azurecr.io/radical-swagger-documentation-server:latest
 
-      ####### Deploy to K8s Cluster #######
-      - name: Azure Kubernetes set context
-        uses: azure/k8s-set-context@v1
-        with:
-          method: kubeconfig
-          kubeconfig: ${{ secrets.DEV_KUBE_CONFIG }}
-          context: ap-dev-cluster
-        id: login
-
-        # Deploy to k8s cluster
-      - name: Deploy to Kubernetes cluster
-        uses: Azure/k8s-deploy@v1.4
-        with:
-          manifests: |
-            k8s/test/deployment.yaml
-            k8s/test/configmap.yaml
-            k8s/test/ingress.yaml
-            k8s/test/service.yaml
-          images: 'easycoop.azurecr.io/radical-swagger-documentation-server:latest'
-          imagepullsecrets: easycoop-dev
-          namespace: easycoop
-          action: deploy
-
-      # restart pods
-      - run: |
-          kubectl -n easycoop rollout restart deployment radical-swagger-documentation-server
+#      ####### Deploy to K8s Cluster #######
+#      - name: Azure Kubernetes set context
+#        uses: azure/k8s-set-context@v1
+#        with:
+#          method: kubeconfig
+#          kubeconfig: ${{ secrets.DEV_KUBE_CONFIG }}
+#          context: ap-dev-cluster
+#        id: login
+#
+#        # Deploy to k8s cluster
+#      - name: Deploy to Kubernetes cluster
+#        uses: Azure/k8s-deploy@v1.4
+#        with:
+#          manifests: |
+#            k8s/test/deployment.yaml
+#            k8s/test/configmap.yaml
+#            k8s/test/ingress.yaml
+#            k8s/test/service.yaml
+#          images: 'easycoop.azurecr.io/radical-swagger-documentation-server:latest'
+#          imagepullsecrets: easycoop-dev
+#          namespace: easycoop
+#          action: deploy
+#
+#      # restart pods
+#      - run: |
+#          kubectl -n easycoop rollout restart deployment radical-swagger-documentation-server
