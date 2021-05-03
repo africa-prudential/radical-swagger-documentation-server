@@ -7,7 +7,7 @@ metadata:
     kubernetes.io/ingress.class: nginx
 spec:
   rules:
-    - host: easycoop-dev.africaprudential.com
+    - host: easycoop-dev.africaprudential.net
       http:
         paths:
           - backend:
@@ -16,6 +16,6 @@ spec:
             path: /documentations
   tls:
     - hosts:
-        - easycoop-dev.africaprudential.com
+        - easycoop-dev.africaprudential.net
       secretName: myeasycoop-tls
 
