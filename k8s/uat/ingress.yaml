@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: radical-swagger-documentation-server-ingress
+  namespace: easycoop
+  annotations:
+    kubernetes.io/ingress.class: nginx
+spec:
+  rules:
+  - host: documentations.africaprudential.net
+    http:
+      paths:
+      - backend:
+          serviceName: radical-swagger-documentation-server
+          servicePort: 8014
+        path: /
+  tls:
+  - hosts:
+    - documentations.africaprudential.net
+    secretName: africaprudential-tls
+

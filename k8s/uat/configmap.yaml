@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: radical-swagger-documentation-server-config
+  namespace: easycoop
+data:
+  spring.profiles.active: uat

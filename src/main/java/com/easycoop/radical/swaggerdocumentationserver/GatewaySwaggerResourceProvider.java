@@ -1,4 +1,4 @@
-package documentation.single.swagger;
+package com.easycoop.radical.swaggerdocumentationserver;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,11 +15,6 @@ import org.springframework.stereotype.Component;
 import springfox.documentation.swagger.web.SwaggerResource;
 import springfox.documentation.swagger.web.SwaggerResourcesProvider;
 
-/**
- * @author George Varghese
- * @version 1.0
- * https://github.com/varghgeorge
- */
 
 @Component
 @Primary

@@ -1,0 +1,28 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: radical-swagger-documentation-server
+  namespace: easycoop
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: radical-swagger-documentation-server
+  template:
+    metadata:
+      labels:
+        app: radical-swagger-documentation-server
+    spec:
+      containers:
+        - image: easyprod.azurecr.io/radical-swagger-documentation-server:latest
+          name: radical-swagger-documentation-server
+          ports:
+            - containerPort: 8014
+          imagePullPolicy: Always
+          envFrom:
+            - configMapRef:
+                name: radical-swagger-documentation-server-config
+      imagePullSecrets:
+        - name: easycoop-prod

@@ -1,0 +1,47 @@
+---
+documentation:
+  baseurl:
+  swagger:
+    services:
+      -
+        name: Contribution Engine
+        url: ${documentation.baseurl}/contribution/v2/api-docs
+        version: 2.0
+      -
+        name: Account Engine
+        url: https://account.africaprudential.net/account/v2/api-docs
+        version: 2.0
+      -
+        name: Monitor Engine
+        url: https://monitor.africaprudential.net/notification/v2/api-docs
+        version: 2.0
+      -
+        name: Loan Engine
+        url: https://loan.africaprudential.net/loan/v2/api-docs
+        version: 2.0
+      -
+        name: Credentials Engine
+        url: https://credentials.africaprudential.net/credentials/v2/api-docs
+        version: 2.0
+      -
+        name: Cooperative Engine
+        url: https://cooperative.africaprudential.net/cooperative/v2/api-docs
+        version: 2.0
+      -
+        name: Accounting bridge Engine
+        url: https://bridge.africaprudential.net/bridgeapi/v2/api-docs
+        version: 2.0
+      -
+        name: Azure blob Engine
+        url: https://azure-blob.africaprudential.net/blob-server/v2/api-docs
+        version: 2.0
+      -
+        name: Sac Engine
+        url: https://sac.africaprudential.net/sac/v2/api-docs
+        version: 2.0
+      -
+        name: Uba Engine
+        url: https://uba.africaprudential.net/ubadisbursement/v2/api-docs
+        version: 2.0
+ 
+    

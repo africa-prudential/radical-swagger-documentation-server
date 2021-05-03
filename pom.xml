@@ -3,11 +3,11 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>documentation.single.swagger</groupId>
-    <artifactId>microservices-single-swagger</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>microservices-single-swagger</name>
-    <description>Spring Boot Swagger Aggregator</description>
+    <groupId>com.easycoop</groupId>
+    <artifactId>radical-swagger-documentation-server</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <name>Radical Swagger Documentation Server</name>
+    <description>Microservice aggregates all the swagger doc from all the radical engines</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -16,8 +16,9 @@
     </parent>
 
     <properties>
-        <java.version>11</java.version>
-        <springfox-swagger.version>2.9.2</springfox-swagger.version>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <springfox-swagger.versi1on>2.9.2</springfox-swagger.versi1on>
     </properties>
 
     <dependencies>
@@ -45,12 +46,12 @@
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger2</artifactId>
-            <version>${springfox-swagger.version}</version>
+            <version>2.9.2</version>
         </dependency>
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger-ui</artifactId>
-            <version>${springfox-swagger.version}</version>
+            <version>2.9.2</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -60,6 +61,7 @@
     </dependencies>
 
     <build>
+        <finalName>radical-swagger-documentation-server</finalName>
         <plugins>
             <!-- spring-boot-maven-plugin -->
             <plugin>

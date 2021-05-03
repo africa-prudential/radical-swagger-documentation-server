@@ -1,0 +1,60 @@
+name: staging workflow
+
+on:
+  push:
+    branches:
+      - uat
+  pull_request:
+    branches:
+      - uat
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+#       - name: SonarQube Scan
+#         uses: sijomc/sonarscan-action@1.1
+#         with:
+#           host: ${{ secrets.SONARQUBE_HOST }}
+#           login: ${{ secrets.SONARQUBE_LOGIN }}
+#           projectKey: ${{ secrets.SONAR_PROJECT_KEY }}
+#           projectName: ${{ secrets.SONAR_PROJECT_KEY}}
+
+      - name: docker login
+        env:
+          DOCKER_USER: ${{secrets.DOCKER_USERNAME_UAT}}
+          DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD_UAT}}
+        run: |
+          docker login -u $DOCKER_USER -p $DOCKER_PASSWORD easyuat.azurecr.io
+      - name: Build the Docker image
+        run: docker build . --file Dockerfile --tag easyuat.azurecr.io/radical-swagger-documentation-server:latest
+      - name:  Docker push
+        run: docker push easyuat.azurecr.io/radical-swagger-documentation-server:latest
+
+      ####### Deploy to K8s Cluster #######
+      - name: Azure Kubernetes set context
+        uses: azure/k8s-set-context@v1
+        with:
+          method: kubeconfig
+          kubeconfig: ${{ secrets.UAT_KUBE_CONFIG }}
+          context: ap-uat-cluster
+        id: login
+
+        # Deploy to k8s cluster
+      - name: Deploy to Kubernetes cluster
+        uses: Azure/k8s-deploy@v1.4
+        with:
+          manifests: |
+            k8s/uat/deployment.yaml
+            k8s/uat/configmap.yaml
+            k8s/uat/ingress.yaml
+            k8s/uat/service.yaml
+          images: 'easyuat.azurecr.io/radical-swagger-documentation-server:latest'
+          imagepullsecrets: easycoop-uat
+          namespace: easycoop
+          action: deploy
+
+      # restart pods
+      - run: |
+          kubectl -n easycoop rollout restart deployment radical-swagger-documentation-server
