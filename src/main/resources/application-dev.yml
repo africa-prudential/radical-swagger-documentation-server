@@ -1,0 +1,47 @@
+---
+documentation: 
+  baseurl: http://localhost
+  swagger: 
+    services:
+      -
+        name: Contribution Engine
+        url: ${documentation.baseurl}:8012/contribution/v2/api-docs
+        version: 2.0
+      -
+        name: Account Engine
+        url: ${documentation.baseurl}:8001/account/v2/api-docs
+        version: 2.0
+      -
+        name: Monitor Engine
+        url: ${documentation.baseurl}:8007/notification/v2/api-docs
+        version: 2.0
+      -
+        name: Loan Engine
+        url: ${documentation.baseurl}:8004/loan/v2/api-docs
+        version: 2.0
+      -
+        name: Credentials Engine
+        url: ${documentation.baseurl}:8000/credentials/v2/api-docs
+        version: 2.0
+      -
+        name: Cooperative Engine
+        url: ${documentation.baseurl}:8080/cooperative/v2/api-docs
+        version: 2.0
+      -
+        name: Accounting bridge Engine
+        url: ${documentation.baseurl}:9092/bridgeapi/v2/api-docs
+        version: 2.0
+      -
+        name: Azure blob Engine
+        url: ${documentation.baseurl}:8085/blob-server/v2/api-docs
+        version: 2.0
+      -
+        name: Sac Engine
+        url: ${documentation.baseurl}:8005/sac/v2/api-docs
+        version: 2.0
+      -
+        name: Uba Engine
+        url: ${documentation.baseurl}:9093/ubadisbursement/v2/api-docs
+        version: 2.0
+ 
+    

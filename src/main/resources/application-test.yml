@@ -1,0 +1,46 @@
+---
+documentation:
+  baseurl: https://easycoop-dev.africaprudential.net
+  swagger:
+    services:
+      -
+        name: Contribution Engine
+        url: ${documentation.baseurl}/contribution/v2/api-docs
+        version: 2.0
+      -
+        name: Account Engine
+        url: ${documentation.baseurl}/account/v2/api-docs
+        version: 2.0
+      -
+        name: Monitor Engine
+        url: ${documentation.baseurl}/notification/v2/api-docs
+        version: 2.0
+      -
+        name: Loan Engine
+        url: ${documentation.baseurl}/loan/v2/api-docs
+        version: 2.0
+      -
+        name: Credentials Engine
+        url: ${documentation.baseurl}/credentials/v2/api-docs
+        version: 2.0
+      -
+        name: Cooperative Engine
+        url: ${documentation.baseurl}/cooperative/v2/api-docs
+        version: 2.0
+      -
+        name: Accounting bridge Engine
+        url: ${documentation.baseurl}/bridgeapi/v2/api-docs
+        version: 2.0
+      -
+        name: Azure blob Engine
+        url: ${documentation.baseurl}/blob-server/v2/api-docs
+        version: 2.0
+      -
+        name: Sac Engine
+        url: ${documentation.baseurl}/sac/v2/api-docs
+        version: 2.0
+      -
+        name: Uba Engine
+        url: ${documentation.baseurl}/ubadisbursement/v2/api-docs
+        version: 2.0
+    

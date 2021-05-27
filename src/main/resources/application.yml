@@ -1,0 +1,12 @@
+---
+info:
+  component: Default Single Swagger Document Server for MicroService
+
+spring:
+  profiles:
+    active: dev
+
+server:
+  port: 8014
+  servlet:
+    context-path: /documentations
