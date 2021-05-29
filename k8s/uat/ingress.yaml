@@ -17,5 +17,5 @@ spec:
   tls:
     - hosts:
         - easycoop-uat.africaprudential.net
-      secretName: myeasycoop-tls
+      secretName: africaprudential-tls
 
