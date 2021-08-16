@@ -1,4 +1,5 @@
-apiVersion: networking.k8s.io/v1beta1
+#Important: The api version depends on the installed kubernetes version
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: radical-swagger-documentation-server-ingress
@@ -7,15 +8,17 @@ metadata:
     kubernetes.io/ingress.class: nginx
 spec:
   rules:
-    - host: easycoop-dev.africaprudential.net
-      http:
-        paths:
-          - backend:
-              serviceName: radical-swagger-documentation-server
-              servicePort: 8014
-            path: /documentations
+  - host: easycoop-dev.africaprudential.net
+    http:
+      paths:
+      - backend:
+          service:
+            name: radical-swagger-documentation-server
+            port: 
+              number: 8014
+        path: /documentations
+        pathType: Prefix
   tls:
     - hosts:
         - easycoop-dev.africaprudential.net
       secretName: myeasycoop-tls
-
