@@ -1,4 +1,3 @@
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -16,7 +15,7 @@ spec:
         app: radical-swagger-documentation-server
     spec:
       containers:
-      - image: easycoop.azurecr.io/radical-swagger-documentation-server:latest
+      - image: easydev.azurecr.io/radical-swagger-documentation-server:latest
         name: radical-swagger-documentation-server
         ports:
         - containerPort: 8014
