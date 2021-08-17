@@ -38,7 +38,7 @@ jobs:
         with:
           method: kubeconfig
           kubeconfig: ${{ secrets.DEV_KUBE_CONFIG }}
-          context: ap-dev-cluster
+          context: afp-dev-cluster
         id: login
 
         # Deploy to k8s cluster
