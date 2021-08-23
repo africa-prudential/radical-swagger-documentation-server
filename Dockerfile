@@ -14,6 +14,14 @@ RUN mvn clean -U package $PROFILES -Dsonar.host.url=$SONAR_HOST_URL -Dsonar.logi
 
 FROM openjdk:8u212-alpine3.9
 
+# Set timezone to WAT
+ENV TZ=Africa/Lagos
+RUN apk update && \
+    apk upgrade && \
+    apk add ca-certificates && update-ca-certificates && \
+    apk add --update tzdata
+RUN rm -rf /var/cache/apk/*
+
 WORKDIR /app
 
 EXPOSE 8014/tcp
